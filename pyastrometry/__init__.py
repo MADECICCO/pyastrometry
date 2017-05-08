@@ -21,3 +21,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
+
+import subprocess
+
+try:
+    subprocess.call(["solve-field"], stdout=subprocess.DEVNULL)
+
+except FileNotFoundError:
+    raise ImportWarning("solve-field not found, is astrometry.net installed and in PATH?")
+
